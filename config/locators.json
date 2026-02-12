@@ -1,0 +1,69 @@
+{
+  "loginPage": {
+    "usernameInput": "input[name='username']",
+    "passwordInput": "input[name='password']",
+    "loginButton": "button[type='submit']",
+    "errorMessage": ".oxd-alert-content-text",
+    "loginPanel": "input[name='username']"
+  },
+  "dashboardPage": {
+    "dashboardHeader": ".oxd-topbar-header-breadcrumb h6",
+    "userDropdown": ".oxd-userdropdown-tab",
+    "logoutOption": "a[href='/web/index.php/auth/logout']",
+    "leaveMenu": "a[href='/web/index.php/leave/viewLeaveModule']",
+    "adminMenu": "a[href='/web/index.php/admin/viewAdminModule']",
+    "sideMenu": ".oxd-main-menu",
+    "mainMenuItems": ".oxd-main-menu-item",
+    "quickLaunchLeave": "//button[contains(@title, 'Leave')]",
+    "timeWidget": ".oxd-time-widget"
+  },
+  "adminPage": {
+    "pageHeader": ".oxd-topbar-header-breadcrumb h6",
+    "usernameInput": "//label[text()='Username']/parent::div/following-sibling::div//input",
+    "userRoleDropdown": "//label[text()='User Role']/parent::div/following-sibling::div//div[@class='oxd-select-text-input']",
+    "searchButton": "button[type='submit']",
+    "resetButton": "button[type='button']",
+    "addButton": "//button[contains(., 'Add')]",
+    "searchResults": ".oxd-table-body",
+    "tableRows": ".oxd-table-card",
+    "usernameColumn": ".oxd-table-cell:nth-child(2)",
+    "userRoleColumn": ".oxd-table-cell:nth-child(3)",
+    "noRecordsFound": ".oxd-table-card--empty"
+  },
+  "leaveMenu": {
+    "applyLink": "//a[normalize-space()='Apply']",
+    "myLeaveLink": "//a[contains(@href, 'viewMyLeaveList')]",
+    "leaveListLink": "//a[contains(@href, 'viewLeaveList')]"
+  },
+  "applyLeavePage": {
+    "leaveTypeDropdown": ".oxd-select-text--active",
+    "leaveTypeOption": "//div[@role='option']/span",
+    "fromDateInput": "//label[text()='From Date']/parent::div/following-sibling::div//input",
+    "toDateInput": "//label[text()='To Date']/parent::div/following-sibling::div//input",
+    "partialDayDropdown": "//label[text()='Partial Days']/parent::div/following-sibling::div//div[@class='oxd-select-text-input']",
+    "durationDropdown": "//label[text()='Duration']/parent::div/following-sibling::div//div[@class='oxd-select-text-input']",
+    "commentsTextarea": "textarea[placeholder='Type comment here']",
+    "applyButton": "button[type='submit']",
+    "successMessage": ".oxd-toast-content-text",
+    "errorMessage": ".oxd-input-field-error-message",
+    "pageHeader": ".oxd-topbar-header-breadcrumb h6"
+  },
+  "myLeavePage": {
+    "pageHeader": ".oxd-topbar-header-breadcrumb h6",
+    "fromDateInput": "//label[text()='From Date']/parent::div/following-sibling::div//input",
+    "toDateInput": "//label[text()='To Date']/parent::div/following-sibling::div//input",
+    "searchButton": "button[type='submit']",
+    "leaveTable": ".oxd-table-body",
+    "leaveTableRows": ".oxd-table-card",
+    "leaveDate": ".oxd-table-cell:nth-child(2)",
+    "leaveType": ".oxd-table-cell:nth-child(3)",
+    "leaveStatus": ".oxd-table-cell:nth-child(6) div",
+    "noRecordsFound": ".oxd-table-card--empty",
+    "statusBadge": ".oxd-text--badge"
+  },
+  "common": {
+    "spinner": ".oxd-loading-spinner",
+    "toast": ".oxd-toast",
+    "toastClose": ".oxd-toast-close"
+  }
+}

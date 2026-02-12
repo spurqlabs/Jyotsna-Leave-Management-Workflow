@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Test Results
+test-results/
+allure-results/
+allure-report/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Playwright
+playwright/.cache/
+playwright-report/
+
+# Environment
+.env
+.env.local
+
+# Coverage
+coverage/
+.nyc_output/

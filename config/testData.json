@@ -1,0 +1,66 @@
+{
+  "credentials": {
+    "valid": {
+      "username": "Admin",
+      "password": "admin123"
+    },
+    "invalid": {
+      "username": "InvalidUser",
+      "password": "wrongPassword"
+    }
+  },
+  "leaveApplications": {
+    "casualLeave": {
+      "leaveType": "CAN - FMLA",
+      "fromDate": "2025-02-20",
+      "toDate": "2025-02-21",
+      "partialDay": "All Days",
+      "duration": "Full Day",
+      "comment": "Need leave for personal work"
+    },
+    "sickLeave": {
+      "leaveType": "CAN - Personal",
+      "fromDate": "2025-02-25",
+      "toDate": "2025-02-26",
+      "partialDay": "All Days",
+      "duration": "Full Day",
+      "comment": "Medical appointment"
+    },
+    "singleDayLeave": {
+      "leaveType": "CAN - FMLA",
+      "fromDate": "2025-03-01",
+      "toDate": "2025-03-01",
+      "partialDay": "All Days",
+      "duration": "Full Day",
+      "comment": "Family function"
+    },
+    "multiDayLeave": {
+      "leaveType": "CAN - Personal",
+      "fromDate": "2025-03-10",
+      "toDate": "2025-03-15",
+      "partialDay": "All Days",
+      "duration": "Full Day",
+      "comment": "Vacation planned"
+    }
+  },
+  "leaveSearch": {
+    "dateRange1": {
+      "fromDate": "2025-02-01",
+      "toDate": "2025-02-28"
+    },
+    "dateRange2": {
+      "fromDate": "2025-03-01",
+      "toDate": "2025-03-31"
+    }
+  },
+  "expectedMessages": {
+    "loginSuccess": "Dashboard",
+    "leaveApplySuccess": "Successfully Saved",
+    "loginError": "Invalid credentials",
+    "leaveStatus": {
+      "pending": "Pending Approval",
+      "approved": "Scheduled",
+      "rejected": "Rejected"
+    }
+  }
+}

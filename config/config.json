@@ -1,0 +1,39 @@
+{
+  "baseURL": "https://opensource-demo.orangehrmlive.com/",
+  "browser": {
+    "name": "chromium",
+    "headless": false,
+    "slowMo": 0,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "args": [
+      "--start-maximized"
+    ]
+  },
+  "timeouts": {
+    "default": 30000,
+    "navigation": 60000,
+    "actionTimeout": 10000
+  },
+  "screenshots": {
+    "enabled": true,
+    "path": "test-results/screenshots",
+    "onFailure": true
+  },
+  "logging": {
+    "enabled": true,
+    "level": "info",
+    "path": "test-results/logs"
+  },
+  "reports": {
+    "cucumberJson": "test-results/reports/cucumber-report.json",
+    "cucumberHtml": "test-results/reports/cucumber-report.html",
+    "allure": "test-results/allure-results"
+  },
+  "parallel": {
+    "enabled": false,
+    "workers": 2
+  }
+}
