@@ -1,0 +1,117 @@
+{
+  "recruitmentModule": {
+    "recruitmentMenu": "a[href='/web/index.php/recruitment/viewRecruitmentModule']",
+    "recruitmentMenuText": "text=Recruitment",
+    "vacanciesTab": "a[href='/web/index.php/recruitment/viewJobVacancy']",
+    "candidatesTab": "a[href='/web/index.php/recruitment/viewCandidates']"
+  },
+  "jobVacancyPage": {
+    "pageTitle": ".oxd-text--h5, .oxd-text--h6",
+    "addButton": "button:has-text('Add')",
+    "searchButton": "button[type='submit']:has-text('Search')",
+    "resetButton": "button[type='reset']:has-text('Reset')",
+    
+    "searchFilters": {
+      "jobTitleDropdown": "div.oxd-select-text:has-text('-- Select --')",
+      "vacancyInput": "input[placeholder='Type for hints...']",
+      "hiringManagerInput": "input[placeholder='Type for hints...']",
+      "statusDropdown": ".oxd-select-text--active"
+    },
+    
+    "vacancyTable": {
+      "tableBody": ".oxd-table-body",
+      "tableRow": ".oxd-table-card",
+      "vacancyName": ".oxd-table-cell:nth-child(2)",
+      "jobTitle": ".oxd-table-cell:nth-child(3)",
+      "hiringManager": ".oxd-table-cell:nth-child(4)",
+      "status": ".oxd-table-cell:nth-child(5)",
+      "actionButton": ".oxd-table-cell-actions button",
+      "editIcon": "i.bi-pencil-fill",
+      "deleteIcon": "i.bi-trash",
+      "viewIcon": "i.bi-eye-fill",
+      "noRecordsFound": ".oxd-text--span:has-text('No Records Found')"
+    }
+  },
+  "addVacancyPage": {
+    "pageTitle": ".oxd-text--h6:has-text('Add Job Vacancy')",
+    "formContainer": ".oxd-form",
+    
+    "formFields": {
+      "vacancyNameInput": "input.oxd-input:nth-of-type(1)",
+      "jobTitleDropdown": ".oxd-select-text--active",
+      "jobTitleOption": ".oxd-select-dropdown .oxd-select-option",
+      "descriptionTextarea": "textarea.oxd-textarea",
+      "hiringManagerInput": "input[placeholder='Type for hints...']",
+      "hiringManagerOption": ".oxd-autocomplete-option",
+      "numberOfPositionsInput": "input[type='text']",
+      "activeCheckbox": "input[type='checkbox'][value='1']",
+      "publishInRSSCheckbox": "input[type='checkbox'][value='1']",
+      "publishInWebCheckbox": "input[type='checkbox'][value='1']"
+    },
+    
+    "buttons": {
+      "saveButton": "button[type='submit']:has-text('Save')",
+      "cancelButton": "button[type='button']:has-text('Cancel')"
+    },
+    
+    "validation": {
+      "requiredFieldError": ".oxd-input-field-error-message",
+      "formError": ".oxd-text--span.oxd-input-field-error-message"
+    }
+  },
+  "editVacancyPage": {
+    "pageTitle": ".oxd-text--h6:has-text('Edit Job Vacancy')",
+    "vacancyNameInput": "input.oxd-input",
+    "jobTitleDropdown": ".oxd-select-text",
+    "descriptionTextarea": "textarea.oxd-textarea",
+    "hiringManagerInput": "input[placeholder='Type for hints...']",
+    "numberOfPositionsInput": "input[type='text']",
+    "statusToggle": ".oxd-switch-input",
+    "activeCheckbox": "input[type='checkbox']",
+    "saveButton": "button[type='submit']:has-text('Save')",
+    "cancelButton": "button[type='button']:has-text('Cancel')"
+  },
+  "viewVacancyPage": {
+    "pageTitle": ".orangehrm-edit-entity-name",
+    "vacancyDetails": {
+      "vacancyName": ".orangehrm-edit-entity-name",
+      "jobTitle": ".oxd-text--span",
+      "description": ".orangehrm-vacancy-card-description",
+      "hiringManager": ".orangehrm-hiring-manager",
+      "numberOfPositions": ".orangehrm-vacancy-card-positions",
+      "status": ".oxd-text--span:has-text('Active'), .oxd-text--span:has-text('Closed')"
+    },
+    "sections": {
+      "descriptionSection": "div:has-text('Description')",
+      "hiringManagerSection": "div:has-text('Hiring Manager')",
+      "numberOfPositionsSection": "div:has-text('Number of Positions')",
+      "statusSection": "div:has-text('Status')"
+    },
+    "editButton": "button:has-text('Edit')",
+    "backButton": "button:has-text('Back')"
+  },
+  "deleteConfirmation": {
+    "modal": ".oxd-dialog-container-default",
+    "modalTitle": ".oxd-text--h6:has-text('Delete')",
+    "confirmMessage": ".oxd-text--p",
+    "confirmButton": "button.oxd-button--label-danger:has-text('Yes, Delete')",
+    "cancelButton": "button:has-text('No, Cancel')"
+  },
+  "successMessages": {
+    "toast": ".oxd-toast",
+    "toastContent": ".oxd-toast-content-text",
+    "toastClose": ".oxd-toast-close",
+    "successIcon": ".oxd-toast--success"
+  },
+  "commonElements": {
+    "loadingSpinner": ".oxd-loading-spinner",
+    "dropdown": ".oxd-select-dropdown",
+    "dropdownOption": ".oxd-select-option",
+    "autocompleteDropdown": ".oxd-autocomplete-dropdown",
+    "autocompleteOption": ".oxd-autocomplete-option",
+    "checkbox": "input[type='checkbox']",
+    "switch": ".oxd-switch-input",
+    "requiredStar": ".oxd-input-field-required",
+    "errorMessage": ".oxd-input-field-error-message"
+  }
+}

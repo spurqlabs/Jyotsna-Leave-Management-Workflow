@@ -127,3 +127,25 @@ Then('each leave record should display date, type and status', async function ()
   
   logger.info('Leave record structure verified successfully');
 });
+
+Then('I should see the applied leave in the list with status {string}', async function (statusKey) {
+  logger.step(`Verifying applied leave appears in list with status: ${statusKey}`);
+  if (!this.myLeavePage) {
+    this.myLeavePage = new MyLeavePage(this.page);
+  }
+  
+  // Verify table is visible
+  const isTableVisible = await this.myLeavePage.isLeaveTableVisible();
+  expect(isTableVisible, 'Leave table should be visible').toBe(true);
+  
+  // Verify records exist
+  const records = await this.myLeavePage.getLeaveRecords();
+  expect(records.length, 'At least one leave record should be present').toBeGreaterThan(0);
+  
+  // Verify status matches
+  const expectedStatus = testDataHelper.getLeaveStatus(statusKey);
+  const statusVerified = await this.myLeavePage.verifyLeaveStatus(expectedStatus);
+  expect(statusVerified, `Leave status should be "${expectedStatus}"`).toBe(true);
+  
+  logger.info(`Applied leave verified with status: ${expectedStatus}`);
+});

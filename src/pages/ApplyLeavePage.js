@@ -121,6 +121,15 @@ class ApplyLeavePage extends BasePage {
       logger.warn('Could not close toast message');
     }
   }
+ /**
+   * Verify My Leave page is loaded
+   */
+  async verifyPageLoaded() {
+    await this.waitForElement(this.selectors.pageTitle);
+    logger.info('My Leave page loaded');
+  }
+
+
 }
 
 module.exports = ApplyLeavePage;

@@ -62,5 +62,109 @@
       "approved": "Scheduled",
       "rejected": "Rejected"
     }
+  },
+
+   "urls": {
+    "loginUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "timesheetUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet"
+  },
+  "projects": [
+    "Apache Software",
+    "Internal - Orangehrm",
+    "Project Management"
+  ],
+  "activities": [
+    "Development",
+    "Code Review",
+    "Testing",
+    "Documentation",
+    "Bug Fixing",
+    "Meeting"
+  ],
+  "days": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "testData": {
+    "validHours": ["1.00", "2.50", "4.00", "6.00", "8.00"],
+    "invalidHours": ["-1", "25", "abc"],
+    "comments": [
+      "Completed all assigned tasks",
+      "Work in progress this week",
+      "Corrected and resubmitting"
+    ]
+  },
+  "recruitment": {
+    "jobVacancy": {
+      "seniorEngineer": {
+        "vacancyName": "Senior Software Engineer",
+        "jobTitle": "Software Engineer",
+        "hiringManager": "Peter Mac Anderson",
+        "numberOfPositions": "5",
+        "status": "Active",
+        "description": "Looking for experienced software engineer with 5+ years of experience"
+      },
+      "marketingManager": {
+        "vacancyName": "Marketing Manager",
+        "jobTitle": "Account Assistant",
+        "hiringManager": "Linda Jane Anderson",
+        "numberOfPositions": "2",
+        "status": "Active",
+        "description": "Marketing manager to lead our digital marketing initiatives"
+      },
+      "hrCoordinator": {
+        "vacancyName": "HR Coordinator",
+        "jobTitle": "Chief Financial Officer",
+        "hiringManager": "Odis Adalwin",
+        "numberOfPositions": "1",
+        "status": "Active",
+        "description": "HR coordinator to manage recruitment and employee relations"
+      },
+      "salesExecutive": {
+        "vacancyName": "Sales Executive",
+        "jobTitle": "Sales Representative",
+        "hiringManager": "Rebecca Harmony",
+        "numberOfPositions": "3",
+        "status": "Active",
+        "description": "Dynamic sales executive to drive business growth"
+      }
+    },
+    "searchCriteria": {
+      "byJobTitle": {
+        "searchType": "Job Title",
+        "searchValue": "Software Engineer"
+      },
+      "byVacancyName": {
+        "searchType": "Vacancy",
+        "searchValue": "Senior"
+      },
+      "byHiringManager": {
+        "searchType": "Hiring Manager",
+        "searchValue": "Peter Mac Anderson"
+      },
+      "byStatus": {
+        "searchType": "Status",
+        "searchValue": "Active"
+      }
+    },
+    "updateData": {
+      "vacancyName": "Updated Vacancy Name",
+      "numberOfPositions": "10"
+    },
+    "statusChange": {
+      "activeToClose": {
+        "currentStatus": "Active",
+        "newStatus": "Closed"
+      },
+      "closedToActive": {
+        "currentStatus": "Closed",
+        "newStatus": "Active"
+      }
+    }
   }
 }

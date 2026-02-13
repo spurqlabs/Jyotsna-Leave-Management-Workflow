@@ -166,7 +166,83 @@ When('I apply leave with casualLeave data', async function() {
     logger.info('Leave applied with casualLeave data');
   }
 
-})
+});
+
+Given('I click on Apply option', async function () {
+  await dashboardPage.clickApplyOption();
+  applyLeavePage = new ApplyLeavePage(this.page);
+  await ApplyLeavePage.verifyPageLoaded();
+});
+
+Given('I click on My Leave option', async function () {
+  await dashboardPage.clickMyLeaveOption();
+  myLeavePage = new MyLeavePage(this.page);
+  await myLeavePage.verifyPageLoaded();
+});
+
+// Apply Leave Form Steps
+When('I fill the leave application form with valid data', async function () {
+  applyLeavePage = new ApplyLeavePage(this.page);
+  const leaveData = testData.leave.applyLeave;
+  await applyLeavePage.fillLeaveApplicationForm(leaveData);
+  
+  // Store applied leave data for later verification
+  this.appliedLeaveData = leaveData;
+  logger.info('Filled leave application form');
+});
+
+When('I select leave type as {string}', async function (leaveType) {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  await ApplyLeavePage.selectLeaveType(leaveType);
+  
+  // Store for verification
+  if (!this.appliedLeaveData) this.appliedLeaveData = {};
+  this.appliedLeaveData.leaveType = leaveType;
+});
+
+When('I select from date as {string}', async function (fromDate) {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  await applyLeavePage.enterFromDate(fromDate);
+  
+  // Store for verification
+  if (!this.appliedLeaveData) this.appliedLeaveData = {};
+  this.appliedLeaveData.fromDate = fromDate;
+});
+
+When('I select to date as {string}', async function (toDate) {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  await applyLeavePage.enterToDate(toDate);
+  
+  // Store for verification
+  if (!this.appliedLeaveData) this.appliedLeaveData = {};
+  this.appliedLeaveData.toDate = toDate;
+});
+
+When('I enter comments as {string}', async function (comments) {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  await applyLeavePage.enterComments(comments);
+});
+
+When('I submit the leave request', async function () {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  await applyLeavePage.submitLeaveRequest();
+});
+
+When('I click on apply button without selecting leave type', async function () {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  await applyLeavePage.clickApplyButton();
+});
+
+// Success Message Steps
+Then('I should see leave applied success message', async function () {
+  applyLeavePage = applyLeavePage || new ApplyLeavePage(this.page);
+  const expectedMessage = testData.validation.successMessages.leaveApplied;
+  await applyLeavePage.verifySuccessMessage(expectedMessage);
+  logger.info('Leave applied success message verified');
+});
+
+
+
 
 // And('I apply leave with casualLeave data',async function() {
 //   logger.step('Applying leave with casualleave data from testData');

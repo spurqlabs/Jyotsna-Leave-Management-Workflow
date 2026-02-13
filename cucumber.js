@@ -45,5 +45,32 @@ module.exports = {
     ],
     tags: '@regression',
     timeout: 120000
+  },
+  timesheet: {
+    require: [
+      'features/step_definitions/**/*.js',
+      'features/support/**/*.js'
+    ],
+    format: [
+      'progress-bar',
+      'html:test-results/reports/timesheet-report.html',
+      'json:test-results/reports/timesheet-report.json'
+    ],
+    tags: '@timesheet',
+    timeout: 120000
+  },
+recruitment: {
+    require: [
+      'features/step_definitions/**/*.js',
+      'features/support/**/*.js'
+    ],
+    format: [
+      'progress-bar',
+      'html:test-results/reports/recruitment-report.html',
+      'json:test-results/reports/recruitment-report.json'
+    ],
+    tags: '@recruitment',
+    timeout: 120000
   }
+
 };

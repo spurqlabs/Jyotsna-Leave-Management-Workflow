@@ -61,9 +61,65 @@
     "noRecordsFound": ".oxd-table-card--empty",
     "statusBadge": ".oxd-text--badge"
   },
+   "navigation": {
+    "time_menu": "//span[text()='Time']",
+    "timesheets_submenu": "//span[normalize-space()='Timesheets']//i[@class='oxd-icon bi-chevron-down']",
+    "my_timesheets": "//*[contains(text(), 'My Timesheets')]",
+    "employee_timesheets": "//a[normalize-space()='Employee Timesheets']"
+  },
+  "timesheet": {
+    "timesheet_header": ".orangehrm-timesheet-header",
+    "edit_button": "//button[normalize-space()='Edit']",
+    "timesheet_period": ".oxd-select-text-input",
+    "week_selector": ".bi-calendar-week",
+    "current_week_label": ".orangehrm-timesheet-period",
+    
+    "add_row_button": "input[placeholder='Type for hints...']",
+    "project_dropdown": ".oxd-autocomplete-text-input input",
+    "project_dropdown_container": ".oxd-autocomplete-dropdown",
+    "project_option": ".oxd-autocomplete-option",
+    "activity_dropdown": ".oxd-select-text-input",
+    "activity_option": ".oxd-select-option",
+    
+    "timesheet_table": ".orangehrm-timesheet-table",
+    "timesheet_row": ".oxd-table-row",
+    "project_cell": ".oxd-table-cell:nth-child(1)",
+    "activity_cell": ".oxd-table-cell:nth-child(2)",
+    
+    "monday_input": "(//input[@autocomplete='off'])[1]",
+    "tuesday_input": "(//input[@autocomplete='off'])[2]",
+    "wednesday_input": "(//input[@autocomplete='off'])[3]",
+    "thursday_input": "(//input[@autocomplete='off'])[4]",
+    "friday_input": "(//input[@autocomplete='off'])[5]",
+    "saturday_input": "(//input[@autocomplete='off'])[6]",
+    "sunday_input": "(//input[@autocomplete='off'])[7]",
+    
+    "total_hours_monday": ".oxd-table-footer .oxd-table-cell:nth-child(3)",
+    "total_hours_tuesday": ".oxd-table-footer .oxd-table-cell:nth-child(4)",
+    "total_hours_wednesday": ".oxd-table-footer .oxd-table-cell:nth-child(5)",
+    "total_hours_thursday": ".oxd-table-footer .oxd-table-cell:nth-child(6)",
+    "total_hours_friday": ".oxd-table-footer .oxd-table-cell:nth-child(7)",
+    "total_hours_saturday": ".oxd-table-footer .oxd-table-cell:nth-child(8)",
+    "total_hours_sunday": ".oxd-table-footer .oxd-table-cell:nth-child(9)",
+    
+    "save_button": "button[type='submit']",
+    "submit_button": "button:has-text('Submit')",
+    "reset_button": "button[type='reset']",
+    
+    "comment_textarea": "textarea.oxd-textarea",
+    "status_label": ".orangehrm-timesheet-status",
+    
+    "success_message": ".oxd-toast-content--success",
+    "error_message": ".oxd-toast-content--error",
+    "toast_message": ".oxd-toast",
+    "toast_close": ".oxd-toast-close"
+  },
   "common": {
     "spinner": ".oxd-loading-spinner",
     "toast": ".oxd-toast",
-    "toastClose": ".oxd-toast-close"
+    "toastClose": ".oxd-toast-close",
+    "modal_overlay": ".oxd-dialog-container-default",
+    "confirm_button": "button.oxd-button--label-danger",
+    "cancel_button": "button.oxd-button--text"
   }
 }

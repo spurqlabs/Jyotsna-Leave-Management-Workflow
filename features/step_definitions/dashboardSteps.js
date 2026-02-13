@@ -117,3 +117,4 @@ Then('the session should be terminated', async function () {
   expect(currentURL, 'URL should contain login after logout').toContain('login');
   logger.info('Session terminated successfully');
 });
+
