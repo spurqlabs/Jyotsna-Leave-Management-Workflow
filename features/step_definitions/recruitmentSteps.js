@@ -1,10 +1,12 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
-const JobVacancyPage = require('../../pages/JobVacancyPage');
-const AddVacancyPage = require('../../pages/AddVacancyPage');
-const EditVacancyPage = require('../../pages/EditVacancyPage');
-const ViewVacancyPage = require('../../pages/ViewVacancyPage');
-const logger = require('../../utils/logger');
+const JobVacancyPage = require('../../src/pages/JobVacancyPage');
+const AddVacancyPage = require('../../src/pages/AddVacancyPage');
+// const EditVacancyPage = require('../../pages/EditVacancyPage');
+// EditVacancyPage.js does not exist in src/pages. Commenting out import to prevent error. Please add the file if needed.
+// const ViewVacancyPage = require('../../src/pages/ViewVacancyPage');
+// ViewVacancyPage.js does not exist in src/pages. Commented out to prevent error. Please add the file if needed.
+const logger = require('../../src/utils/logger');
 
 // Page object instances
 let jobVacancyPage, addVacancyPage, editVacancyPage, viewVacancyPage;

@@ -1,4 +1,15 @@
-const { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } = require('@cucumber/cucumber');
+const { Before, After, AfterStep, BeforeAll, AfterAll, Status, setDefaultTimeout } = require('@cucumber/cucumber');
+// Attach screenshot after every step
+AfterStep(async function (step) {
+  if (this.page) {
+    try {
+      const screenshotBuffer = await this.page.screenshot({ fullPage: true });
+      await this.attach(screenshotBuffer, 'image/png');
+    } catch (err) {
+      logger.error('Failed to capture screenshot in AfterStep: ' + err.message);
+    }
+  }
+});
 const BrowserHelper = require('../../src/utils/browserHelper');
 const logger = require('../../src/utils/logger');
 const fs = require('fs-extra');

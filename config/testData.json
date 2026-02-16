@@ -69,7 +69,8 @@
     "timesheetUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet"
   },
   "projects": [
-    "Apache Software",
+    "ACME Ltd - ACME Ltd",
+    "Global Corp and Co - Global Software phase - 1",
     "Internal - Orangehrm",
     "Project Management"
   ],

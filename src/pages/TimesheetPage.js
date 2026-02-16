@@ -45,6 +45,11 @@ class TimesheetPage {
     await this.page.waitForTimeout(500);
   }
 
+  async addNew() {
+    await this.page.click(this.locators.timesheet.add_new);
+    await this.page.waitForTimeout(500);
+  }
+
   async selectProject(projectName) {
     // Click on project input to open dropdown
     await this.page.click(this.locators.timesheet.project_dropdown);
@@ -55,7 +60,7 @@ class TimesheetPage {
     await this.page.waitForTimeout(500);
     
     // Select from dropdown
-    const projectOption = `${this.locators.timesheet.project_option}:has-text("${projectName}")`;
+    // const projectOption = `${this.locators.timesheet.project_option}:has-text("${projectName}")`;
     await this.page.click(projectOption);
     await this.page.waitForTimeout(300);
   }
@@ -64,9 +69,16 @@ class TimesheetPage {
     // Click activity dropdown
     await this.page.click(this.locators.timesheet.activity_dropdown);
     await this.page.waitForTimeout(300);
-    
-    // Select activity from dropdown
+
+    // Wait for the activity options to be visible
     const activityOption = `${this.locators.timesheet.activity_option}:has-text("${activityName}")`;
+    await this.page.waitForSelector(activityOption, { timeout: 10000 });
+
+    // Click the activity option if it exists
+    const optionExists = await this.page.$(activityOption);
+    if (!optionExists) {
+      throw new Error(`Activity option '${activityName}' not found in dropdown.`);
+    }
     await this.page.click(activityOption);
     await this.page.waitForTimeout(300);
   }
