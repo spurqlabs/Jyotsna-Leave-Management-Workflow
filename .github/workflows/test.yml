@@ -1,98 +1,98 @@
-# name: OrangeHRM Automation Tests
+name: OrangeHRM Automation Tests
 
-# on:
-#   push:
-#     branches: [ main, develop ]
-#   pull_request:
-#     branches: [ main, develop ]
-#   schedule:
-#     - cron: '0 2 * * *'  # Run daily at 2 AM UTC
-#   workflow_dispatch:  # Allow manual triggering
+on:
+  push:
+    branches: [ ORNGHRM-JJ2, develop ]
+  pull_request:
+    branches: [ ORNGHRM-JJ2, develop ]
+  schedule:
+    - cron: '0 12 * * *'  # Run daily at 12 PM UTC
+  workflow_dispatch:  # Allow manual triggering
 
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
+jobs:
+  test:
+    runs-on: ubuntu-latest
     
-#     strategy:
-#       matrix:
-#         node-version: [18.x, 20.x]
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
         
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
       
-#     - name: Setup Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: ${{ matrix.node-version }}
-#         cache: 'npm'
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
         
-#     - name: Install dependencies
-#       run: npm ci
+    - name: Install dependencies
+      run: npm ci
       
-#     - name: Install Playwright browsers
-#       run: npx playwright install --with-deps chromium
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps chromium
       
-#     - name: Run lint
-#       run: npm run lint
-#       continue-on-error: true
+    - name: Run lint
+      run: npm run lint
+      continue-on-error: true
       
-#     - name: Run tests
-#       run: npm test
-#       env:
-#         HEADED: false
+    - name: Run tests
+      run: npm test
+      env:
+        HEADED: false
         
-#     - name: Upload test results
-#       if: always()
-#       uses: actions/upload-artifact@v3
-#       with:
-#         name: test-results-${{ matrix.node-version }}
-#         path: test-results/
-#         retention-days: 30
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results-${{ matrix.node-version }}
+        path: test-results/
+        retention-days: 30
         
-#     - name: Upload screenshots
-#       if: failure()
-#       uses: actions/upload-artifact@v3
-#       with:
-#         name: screenshots-${{ matrix.node-version }}
-#         path: test-results/screenshots/
-#         retention-days: 7
+    - name: Upload screenshots
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: screenshots-${{ matrix.node-version }}
+        path: test-results/screenshots/
+        retention-days: 7
         
-#     - name: Publish test report
-#       if: always()
-#       uses: dorny/test-reporter@v1
-#       with:
-#         name: Test Results
-#         path: test-results/reports/*.xml
-#         reporter: java-junit
-#         fail-on-error: false
+    - name: Publish test report
+      if: always()
+      uses: dorny/test-reporter@v1
+      with:
+        name: Test Results
+        path: test-results/reports/*.xml
+        reporter: java-junit
+        fail-on-error: false
 
-#   smoke-tests:
-#     runs-on: ubuntu-latest
+  smoke-tests:
+    runs-on: ubuntu-latest
     
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
       
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: '20.x'
-#         cache: 'npm'
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+        cache: 'npm'
         
-#     - name: Install dependencies
-#       run: npm ci
+    - name: Install dependencies
+      run: npm ci
       
-#     - name: Install Playwright browsers
-#       run: npx playwright install --with-deps chromium
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps chromium
       
-#     - name: Run smoke tests
-#       run: npm run test:smoke
+    - name: Run smoke tests
+      run: npm run test:smoke
       
-#     - name: Upload smoke test results
-#       if: always()
-#       uses: actions/upload-artifact@v3
-#       with:
-#         name: smoke-test-results
-#         path: test-results/
-#         retention-days: 30
+    - name: Upload smoke test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: smoke-test-results
+        path: test-results/
+        retention-days: 30
