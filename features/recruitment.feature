@@ -5,8 +5,8 @@ Feature: Recruitment - Job Vacancy Management
   So that I can track and manage hiring processes effectively
 
   Background:
-    Given I am on the OrangeHRM login page
-    When I login with valid credentials
+    Given the user is on the OrangeHRM login page
+    When the user logs in with valid credentials
     Then I should see the dashboard
     And I navigate to Recruitment module
 

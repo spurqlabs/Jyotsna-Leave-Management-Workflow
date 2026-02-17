@@ -158,7 +158,7 @@ When('I apply leave with casualLeave data', async function() {
   logger.step('Applying leave with casualleave data from testData');
   if (!this.applyLeavePage){
     this.applyLeavePage =  new ApplyLeavePage(this.page);
-    const leaveDropdown = await $("div.oxd-select-text");
+    const leaveDropdown = await this.page.$("div.oxd-select-text");
      await leaveDropdown.click();
     const leaveData = testDataHelper.getLeaveApplication('casualLeave');
     await this.applyLeavePage.applyLeave(leaveData);

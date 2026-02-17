@@ -41,34 +41,52 @@ class TimesheetPage {
   }
 
   async addNewRow() {
-    await this.page.click(this.locators.timesheet.add_row_button);
+    await this.page.click(this.locators.timesheet.add_new);
     await this.page.waitForTimeout(500);
   }
 
   async selectProject(projectName) {
     // Click on project input to open dropdown
     await this.page.click(this.locators.timesheet.project_dropdown);
-    await this.page.waitForTimeout(300);
-    
     // Type project name to filter
     await this.page.fill(this.locators.timesheet.project_dropdown, projectName);
-    await this.page.waitForTimeout(500);
-    
-    // Select from dropdown
-    const projectOption = `${this.locators.timesheet.project_option}:has-text("${projectName}")`;
-    await this.page.click(projectOption);
-    await this.page.waitForTimeout(300);
+    // Wait for dropdown container and retry until real options appear
+    try {
+      await this.page.waitForSelector(this.locators.timesheet.project_dropdown_container, { state: 'visible', timeout: 10000 });
+      let options = [];
+      let retries = 0;
+      while (retries < 10) {
+        options = await this.page.$$eval(this.locators.timesheet.project_option, els => els.map(e => e.textContent.trim()));
+        console.log('Available project options:', options);
+        if (options.length > 0 && !options.includes('Searching....')) break;
+        await this.page.waitForTimeout(500);
+        retries++;
+      }
+      if (!options.includes(projectName)) {
+        throw new Error(`Project option '${projectName}' not found in options: ${options}`);
+      }
+      const projectOption = `${this.locators.timesheet.project_option}:has-text("${projectName}")`;
+      await this.page.waitForSelector(projectOption, { state: 'visible', timeout: 10000 });
+      await this.page.click(projectOption);
+    } catch (e) {
+      // Take a screenshot for debugging
+      if (this.page.screenshot) {
+        await this.page.screenshot({ path: `test-results/screenshots/FAILED_ProjectOption_${projectName}_${Date.now()}.png` });
+      }
+      throw new Error(`Project option '${projectName}' not found or not clickable: ${e.message}`);
+    }
   }
 
   async selectActivity(activityName) {
     // Click activity dropdown
     await this.page.click(this.locators.timesheet.activity_dropdown);
-    await this.page.waitForTimeout(300);
-    
-    // Select activity from dropdown
+    // Debug: print all available activity options
+    await this.page.waitForTimeout(500); // Give time for dropdown to open
+    const options = await this.page.$$eval(this.locators.timesheet.activity_option, els => els.map(e => e.textContent.trim()));
+    console.log('Available activity options:', options);
     const activityOption = `${this.locators.timesheet.activity_option}:has-text("${activityName}")`;
+    await this.page.waitForSelector(activityOption, { state: 'visible', timeout: 5000 });
     await this.page.click(activityOption);
-    await this.page.waitForTimeout(300);
   }
 
   async enterHoursForDay(day, hours) {
@@ -140,8 +158,21 @@ class TimesheetPage {
       throw new Error(`Invalid day: ${day}`);
     }
 
+    // Wait for the total hours cell to be visible
+    try {
+      await this.page.waitForSelector(totalSelector, { state: 'visible', timeout: 7000 });
+    } catch (e) {
+      throw new Error(`Total hours cell for ${day} not found or not visible: ${e.message}`);
+    }
     const totalElement = await this.page.$(totalSelector);
-    return await totalElement.textContent();
+    if (!totalElement) {
+      throw new Error(`Total hours element for ${day} is null`);
+    }
+    const text = await totalElement.textContent();
+    if (!text) {
+      throw new Error(`Total hours text for ${day} is empty or null`);
+    }
+    return text;
   }
 
   async clickSaveButton() {
@@ -157,6 +188,8 @@ class TimesheetPage {
   }
 
   async addComment(comment) {
+    // Wait for the comment textarea to be visible before filling
+    await this.page.waitForSelector(this.locators.timesheet.comment_textarea, { state: 'visible', timeout: 10000 });
     await this.page.fill(this.locators.timesheet.comment_textarea, comment);
     await this.page.waitForTimeout(200);
   }

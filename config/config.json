@@ -33,7 +33,7 @@
     "allure": "test-results/allure-results"
   },
   "parallel": {
-    "enabled": false,
-    "workers": 2
+    "enabled": true,
+    "workers": 3
   }
 }

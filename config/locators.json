@@ -73,7 +73,8 @@
     "timesheet_period": ".oxd-select-text-input",
     "week_selector": ".bi-calendar-week",
     "current_week_label": ".orangehrm-timesheet-period",
-    
+
+    "add_new" : ".oxd-icon.bi-plus",
     "add_row_button": "input[placeholder='Type for hints...']",
     "project_dropdown": ".oxd-autocomplete-text-input input",
     "project_dropdown_container": ".oxd-autocomplete-dropdown",

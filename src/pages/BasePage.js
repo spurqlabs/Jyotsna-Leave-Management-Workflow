@@ -1,18 +1,16 @@
-const fs = require('fs');
+
 const path = require('path');
+const fs = require('fs');
+const locatorHelper = require('../utils/locatorHelper');
 const logger = require('../utils/logger');
 
 class BasePage {
-  constructor(page) {
+
+  constructor(page, locatorFileName = 'locators.json') {
     this.page = page;
-    this.locators = this.loadLocators();
+    this.locators = locatorHelper.getLocators(locatorFileName);
     this.config = this.loadConfig();
     this.timeout = this.config.timeouts.default;
-  }
-
-  loadLocators() {
-    const locatorsPath = path.join(__dirname, '../../config/locators.json');
-    return JSON.parse(fs.readFileSync(locatorsPath, 'utf8'));
   }
 
   loadConfig() {

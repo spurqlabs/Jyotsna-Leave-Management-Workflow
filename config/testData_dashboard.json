@@ -1,0 +1,8 @@
+{
+  "expectedMessages": {
+    "loginSuccess": "Dashboard"
+  },
+  "urls": {
+    "loginUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+  }
+}

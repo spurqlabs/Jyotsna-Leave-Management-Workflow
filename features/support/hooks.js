@@ -1,4 +1,5 @@
 const { Before, After, BeforeAll, AfterAll, Status, setDefaultTimeout } = require('@cucumber/cucumber');
+const { AfterStep } = require('@cucumber/cucumber');
 const BrowserHelper = require('../../src/utils/browserHelper');
 const logger = require('../../src/utils/logger');
 const fs = require('fs-extra');
@@ -71,3 +72,18 @@ AfterAll(async function () {
 });
 
 module.exports = { browserHelper };
+
+// Take and attach screenshot after every step
+AfterStep(async function (step) {
+  if (config.screenshots.enabled) {
+    try {
+      const page = this.page;
+      if (page) {
+        const screenshotBuffer = await page.screenshot({ fullPage: true });
+        await this.attach(screenshotBuffer, 'image/png');
+      }
+    } catch (error) {
+      logger.error(`Failed to take or attach screenshot in AfterStep: ${error.message}`);
+    }
+  }
+});

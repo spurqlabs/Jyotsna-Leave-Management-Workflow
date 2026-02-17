@@ -1,10 +1,12 @@
 const BasePage = require('./BasePage');
+
+const locatorHelper = require('../utils/locatorHelper');
 const logger = require('../utils/logger');
 
 class ApplyLeavePage extends BasePage {
   constructor(page) {
-    super(page);
-    this.applyLeaveLocators = this.locators.applyLeavePage;
+    super(page, 'locators_applyLeave.json');
+    this.applyLeaveLocators = this.locators;
   }
 
   async isApplyLeavePageDisplayed() {
@@ -21,8 +23,11 @@ class ApplyLeavePage extends BasePage {
 
   async selectLeaveType(leaveType) {
     try {
+      await this.waitForElement(this.applyLeaveLocators.leaveTypeDropdown);
       await this.click(this.applyLeaveLocators.leaveTypeDropdown);
       await this.page.waitForTimeout(500);
+      // Wait for dropdown options to appear
+      await this.waitForElement("//div[@role='option']//span[contains(text(), '" + leaveType + "')]", { timeout: 5000 });
       const optionSelector = `//div[@role='option']//span[contains(text(), '${leaveType}')]`;
       await this.click(optionSelector);
       logger.info(`Selected leave type: ${leaveType}`);
@@ -62,7 +67,7 @@ class ApplyLeavePage extends BasePage {
 
   async enterComment(comment) {
     try {
-      await this.waitForElement(this.applyLeaveLocators.commentsTextarea);
+      await this.waitForElement(this.applyLeaveLocators.commentsTextarea, { timeout: 7000 });
       await this.fill(this.applyLeaveLocators.commentsTextarea, comment);
       logger.info('Entered comment');
     } catch (error) {
@@ -73,6 +78,7 @@ class ApplyLeavePage extends BasePage {
 
   async clickApplyButton() {
     try {
+      await this.waitForElement(this.applyLeaveLocators.applyButton);
       await this.click(this.applyLeaveLocators.applyButton);
       await this.waitForToastMessage();
       logger.info('Clicked apply button');

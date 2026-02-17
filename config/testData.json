@@ -69,13 +69,13 @@
     "timesheetUrl": "https://opensource-demo.orangehrmlive.com/web/index.php/time/viewEmployeeTimesheet"
   },
   "projects": [
-    "Apache Software",
-    "Internal - Orangehrm",
+    "Apache Software Foundation - ASF - Phase 1",
+    "Internal - General HR Tasks",
     "Project Management"
   ],
   "activities": [
-    "Development",
-    "Code Review",
+    "Feature Development",
+    "HR Audit",
     "Testing",
     "Documentation",
     "Bug Fixing",

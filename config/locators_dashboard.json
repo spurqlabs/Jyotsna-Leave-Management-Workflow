@@ -1,0 +1,11 @@
+{
+  "dashboardHeader": ".oxd-topbar-header-breadcrumb h6",
+  "userDropdown": ".oxd-userdropdown-tab",
+  "logoutOption": "a[href='/web/index.php/auth/logout']",
+  "leaveMenu": "a[href='/web/index.php/leave/viewLeaveModule']",
+  "adminMenu": "a[href='/web/index.php/admin/viewAdminModule']",
+  "sideMenu": ".oxd-main-menu",
+  "mainMenuItems": ".oxd-main-menu-item",
+  "quickLaunchLeave": "//button[contains(@title, 'Leave')]",
+  "timeWidget": ".oxd-time-widget"
+}

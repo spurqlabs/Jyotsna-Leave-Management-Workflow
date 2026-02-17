@@ -3,8 +3,8 @@ const logger = require('../utils/logger');
 
 class LoginPage extends BasePage {
   constructor(page) {
-    super(page);
-    this.loginLocators = this.locators.loginPage;
+    super(page, 'locators_login.json');
+    this.loginLocators = this.locators;
   }
 
   async navigateToLoginPage() {

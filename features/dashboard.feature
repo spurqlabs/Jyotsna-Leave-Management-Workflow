@@ -5,8 +5,8 @@ Feature: Dashboard Module
   So that I can view system information and navigate to different modules
 
   Background:
-    Given I am on the OrangeHRM login page
-    When I login with valid credentials
+    Given the user is on the OrangeHRM login page
+    When the user logs in with valid credentials
 
   @smoke @positive
   Scenario: Verify dashboard displays after successful login

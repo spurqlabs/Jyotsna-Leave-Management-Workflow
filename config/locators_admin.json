@@ -1,0 +1,13 @@
+{
+  "pageHeader": ".oxd-topbar-header-breadcrumb h6",
+  "usernameInput": "//label[text()='Username']/parent::div/following-sibling::div//input",
+  "userRoleDropdown": "//label[text()='User Role']/parent::div/following-sibling::div//div[@class='oxd-select-text-input']",
+  "searchButton": "button[type='submit']",
+  "resetButton": "button[type='button']",
+  "addButton": "//button[contains(., 'Add')]",
+  "searchResults": ".oxd-table-body",
+  "tableRows": ".oxd-table-card",
+  "usernameColumn": ".oxd-table-cell:nth-child(2)",
+  "userRoleColumn": ".oxd-table-cell:nth-child(3)",
+  "noRecordsFound": ".oxd-table-card--empty"
+}

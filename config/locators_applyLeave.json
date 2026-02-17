@@ -1,0 +1,13 @@
+{
+  "leaveTypeDropdown": ".oxd-select-text--active",
+  "leaveTypeOption": "//div[@role='option']/span",
+  "fromDateInput": "//label[text()='From Date']/parent::div/following-sibling::div//input",
+  "toDateInput": "//label[text()='To Date']/parent::div/following-sibling::div//input",
+  "partialDayDropdown": "//label[text()='Partial Days']/parent::div/following-sibling::div//div[@class='oxd-select-text-input']",
+  "durationDropdown": "//label[text()='Duration']/parent::div/following-sibling::div//div[@class='oxd-select-text-input']",
+  "commentsTextarea": "textarea[placeholder='Type comment here']",
+  "applyButton": "button[type='submit']",
+  "successMessage": ".oxd-toast-content-text",
+  "errorMessage": ".oxd-input-field-error-message",
+  "pageHeader": ".oxd-topbar-header-breadcrumb h6"
+}

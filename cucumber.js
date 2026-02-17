@@ -1,3 +1,4 @@
+// Unified Cucumber config: use CLI --tags to filter scenarios (e.g. --tags "@smoke")
 module.exports = {
   default: {
     require: [
@@ -10,6 +11,8 @@ module.exports = {
       'html:test-results/reports/cucumber-report.html',
       'json:test-results/reports/cucumber-report.json',
       'junit:test-results/reports/cucumber-report.xml'
+      // To use Allure reporting, run with:
+      // npx cucumber-js --format @reportportal/agent-js-cucumber
     ],
     formatOptions: {
       snippetInterface: 'async-await'
@@ -19,58 +22,5 @@ module.exports = {
     strict: true,
     parallel: 1,
     timeout: 120000
-  },
-  smoke: {
-    require: [
-      'features/step_definitions/**/*.js',
-      'features/support/**/*.js'
-    ],
-    format: [
-      'progress-bar',
-      'html:test-results/reports/smoke-report.html',
-      'json:test-results/reports/smoke-report.json'
-    ],
-    tags: '@smoke',
-    timeout: 120000
-  },
-  regression: {
-    require: [
-      'features/step_definitions/**/*.js',
-      'features/support/**/*.js'
-    ],
-    format: [
-      'progress-bar',
-      'html:test-results/reports/regression-report.html',
-      'json:test-results/reports/regression-report.json'
-    ],
-    tags: '@regression',
-    timeout: 120000
-  },
-  timesheet: {
-    require: [
-      'features/step_definitions/**/*.js',
-      'features/support/**/*.js'
-    ],
-    format: [
-      'progress-bar',
-      'html:test-results/reports/timesheet-report.html',
-      'json:test-results/reports/timesheet-report.json'
-    ],
-    tags: '@timesheet',
-    timeout: 120000
-  },
-recruitment: {
-    require: [
-      'features/step_definitions/**/*.js',
-      'features/support/**/*.js'
-    ],
-    format: [
-      'progress-bar',
-      'html:test-results/reports/recruitment-report.html',
-      'json:test-results/reports/recruitment-report.json'
-    ],
-    tags: '@recruitment',
-    timeout: 120000
   }
-
 };

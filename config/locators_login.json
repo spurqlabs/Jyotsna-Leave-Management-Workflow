@@ -1,0 +1,7 @@
+{
+  "usernameInput": "input[name='username']",
+  "passwordInput": "input[name='password']",
+  "loginButton": "button[type='submit']",
+  "errorMessage": ".oxd-alert-content-text",
+  "loginPanel": "input[name='username']"
+}

@@ -42,6 +42,7 @@ Given('the user is viewing the current timesheet', async function () {
   
   // Click edit button to enable editing
   await this.timesheetPage.clickEditButton();
+  // await this.timesheetPage.addNewRow();
 });
 
 When('the user selects project {string} and activity {string}', async function (projectName, activity) {
@@ -180,8 +181,8 @@ Given('the user has timesheet entries for the week', async function () {
   
   // Add sample entries if not present
   await this.timesheetPage.addNewRow();
-  await this.timesheetPage.selectProject('Apache Software');
-  await this.timesheetPage.selectActivity('Development');
+  await this.timesheetPage.selectProject('Apache Software Foundation - ASF - Phase 1');
+  await this.timesheetPage.selectActivity('Feature Development');
   await this.timesheetPage.enterHoursForDay('Monday', '8.00');
   await this.timesheetPage.enterHoursForDay('Tuesday', '7.50');
   await this.timesheetPage.clickSaveButton();

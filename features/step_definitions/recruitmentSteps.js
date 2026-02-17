@@ -1,10 +1,10 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { expect } = require('@playwright/test');
-const JobVacancyPage = require('../../pages/JobVacancyPage');
-const AddVacancyPage = require('../../pages/AddVacancyPage');
-const EditVacancyPage = require('../../pages/EditVacancyPage');
-const ViewVacancyPage = require('../../pages/ViewVacancyPage');
-const logger = require('../../utils/logger');
+const JobVacancyPage = require('../../src/pages/JobVacancyPage');
+const AddVacancyPage = require('../../src/pages/AddVacancyPage');
+// const EditVacancyPage = require('../../src/pages/EditVacancyPage');
+// const ViewVacancyPage = require('../../src/pages/ViewVacancyPage');
+const logger = require('../../src/utils/logger');
 
 // Page object instances
 let jobVacancyPage, addVacancyPage, editVacancyPage, viewVacancyPage;
